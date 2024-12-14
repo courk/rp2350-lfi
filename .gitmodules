@@ -1,0 +1,3 @@
+[submodule "glasgow"]
+	path = glasgow
+	url = git@github.com:courk/glasgow.git

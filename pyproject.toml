@@ -1,0 +1,36 @@
+[tool.poetry]
+name = "rp2350-lfi"
+version = "0.1.0"
+description = "RP2350 Laser Fault Injection Project"
+authors = ["courk <courk@courk.cc>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+typer = "^0.12.5"
+cffi = "^1.17.1"
+types-cffi = "^1.16.0.20240331"
+requests = "^2.32.3"
+types-requests = "^2.32.0.20240914"
+
+[tool.poetry.group.dev.dependencies]
+ruff = "^0.6.7"
+mypy = "^1.11.2"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.ruff.lint]
+select = ["E", "D", "F", "N", "PT", "I001", "W"]
+ignore = ["E501", "ANN101", "D213", "D203", "D102", "D105"]
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"
+
+[tool.ruff.lint.per-file-ignores]
+"configure_rp2350_glasgow.py" = ["D"]
+
+[tool.poetry.scripts]
+ctrl = "ctrl:app"
+binary-patcher = "binary_patcher:app"
